@@ -976,12 +976,28 @@
             flex-wrap: wrap;
             gap: 24px;
         }
-
-        .footer-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
+        .footer-logo{
+            display:flex;
+            align-items:center;
+            gap:10px;
         }
+
+        .footer-logo img{
+            width:18px;
+            height:18px;
+            object-fit:contain;
+            display:block;
+        }
+
+        .footer-logo a{
+            display:flex;
+            align-items:center;
+        }
+
+        .footer-logo img:hover{
+            transform:scale(1.15);
+            opacity:0.8;
+}
 
         .footer-logo span {
             color: var(--yellow);
