@@ -113,32 +113,26 @@
             text-decoration: none;
         }
 
-        .nav-logo-mark {
-            width: 36px;
-            height: 36px;
-            background: var(--yellow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--black);
-            clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
+        .nav-logo-img{
+            width:100px;
+            height:100px;
+            object-fit:contain;
+            border-radius:50%;
+            transition:.3s ease;
         }
 
-        .nav-logo-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 15px;
-            color: var(--white);
-            letter-spacing: 0.01em;
+        .nav-logo:hover .nav-logo-img{
+            transform:rotate(8deg) scale(1.08);
         }
 
-        .nav-logo-text span {
-            color: var(--yellow);
+            @media (max-width:768px){
+
+        .nav-logo-img{
+            width:38px;
+            height:38px;
         }
 
+}
         .nav-links {
             display: flex;
             align-items: center;
@@ -243,7 +237,7 @@
 
         #canvas-container {
             position: absolute;
-            top: -120px;
+            top: -80px;
             right: 0;
             width: 50%;
             height: 100%;
@@ -284,10 +278,7 @@
                 justify-content: center;
             }
 
-            .hero-stats {
-                justify-content: center;
-                text-align: center;
-            }
+
         }
 
         .hero-content {
@@ -1577,4 +1568,264 @@ PLACEMENTS
 
 }
 
+}
+
+/* ================= INITIATIVES ================= */
+
+.initiatives{
+    padding:120px 8%;
+}
+
+.initiative-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+    gap:30px;
+    margin-top:60px;
+}
+
+.initiative-card{
+
+    background:#111;
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+}
+
+.initiative-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#00c26e;
+
+    box-shadow:0 20px 45px rgba(0,194,110,.15);
+
+}
+
+.initiative-content{
+
+    padding:40px;
+
+}
+
+.initiative-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:30px;
+
+}
+
+.initiative-top h3{
+
+    font-size:2rem;
+
+    margin-bottom:6px;
+
+}
+
+.initiative-top span{
+
+    color:#9ca3af;
+
+    font-size:.95rem;
+
+}
+
+.initiative-top img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+}
+
+.initiative-content p{
+
+    color:#cfcfcf;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.initiative-content ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin-bottom:35px;
+
+}
+
+.initiative-content li{
+
+    margin:14px 0;
+
+    color:#ececec;
+
+    position:relative;
+
+    padding-left:22px;
+
+}
+
+.initiative-content li::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#00c26e;
+
+    position:absolute;
+
+    left:0;
+
+    top:10px;
+
+}
+
+.initiative-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:14px 22px;
+
+    background:#00c26e;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.initiative-btn:hover{
+
+    background:#00a95f;
+
+    transform:translateX(6px);
+
+}
+
+.poster-modal{
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .3s ease;
+
+    z-index: 9999;
+}
+
+.poster-modal.show{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.poster-container{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.poster-container img{
+    width:360px;
+    max-width:90vw;
+    border-radius:18px;
+
+    transform:scale(.9);
+    transition:transform .3s;
+}
+
+.poster-modal.show .poster-container img{
+    transform:scale(1);
+}
+
+.close-modal{
+    position:absolute;
+    top:25px;
+    right:35px;
+
+    font-size:42px;
+    color:white;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.poster-container{
+    flex-direction:column;
+}
+
+.poster-container img{
+    width:95%;
+}
+
+}
+.initiative-query{
+    margin:28px 0 22px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.initiative-query span{
+    display:block;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--yellow);
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.initiative-query p{
+    margin:0;
+    color:rgba(255,255,255,.8);
+    font-size:15px;
+}
+
+.initiative-query strong{
+    color:#fff;
+    font-weight:600;
 }
